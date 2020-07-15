@@ -1,0 +1,41 @@
+{
+  "title": "Home",
+  "gallery": [
+    {
+      "title": "UMAI Dried Foods",
+      "path": "/UMAI-Dried-Foods",
+      "copy": "Packaging Design",
+      "image": "../images/gallery/edit-2.jpg"
+    },
+    {
+      "title": "Smart Bins",
+      "path": "/Smart-Bins",
+      "copy": "App Design",
+      "image": "../images/gallery/edit-2.jpg"
+    },
+    {
+      "title": "Kowloon Walled City",
+      "path": "/Kowloon-Walled-City",
+      "copy": "Publication Design",
+      "image": "../images/gallery/edit-2.jpg"
+    },
+    {
+      "title": "Obsessed: Compelled to make",
+      "path": "/Obsessed",
+      "copy": "Flyer Design for Exhibition/Event",
+      "image": "../images/gallery/edit-2.jpg"
+    },
+    {
+      "title": "Life on TRAPPIST?",
+      "path": "/Life-on-TRAPPIST",
+      "copy": "Data Visualisation for Digital Exhibition",
+      "image": "../images/gallery/edit-2.jpg"
+    },
+    {
+      "title": "Data Arena: Earthquakes",
+      "path": "/DA-Earthquakes",
+      "copy": "Experiential Data Visualisation",
+      "image": "../images/gallery/edit-2.jpg"
+    }
+  ]
+}
