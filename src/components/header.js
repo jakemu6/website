@@ -1,42 +1,72 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
-import React from "react"
+import React, { Component } from "react"
+import styled from "styled-components"
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `black`,
-      marginBottom: `2rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0`,
-        maxWidth: 960,
-        padding: `1rem 1rem`,
-      }}
-    >
-      <h2 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
+const Nav = styled.div`
+  position: fixed;
+  z-index: 100;
+  left: 2rem;
+  bottom: 2rem;
+  color: black;
+  background-color: white;
+  opacity: 0.9;
+`;
+
+const NavText = styled.h2`
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  margin-top: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0;
+  margin-bottom: 0rem;
+  color: inherit;
+  font-family: jaf-bernino-sans,sans-serif;
+  font-weight: 400;
+  font-style: italic;
+  text-rendering: optimizeLegibility;
+  font-size: 1.5rem;
+  line-height: 1.25;
+`;
+
+export default class Header extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      scrollPos: 0,
+      show: true
+    };
+  }
+
+  componentDidMount() {
+    window.addEventListener('scroll', this.handleScroll)
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll)
+
+  }
+  handleScroll = () => {
+    this.setState({
+      scrollPos: document.body.getBoundingClientRect().top,
+      show: document.body.getBoundingClientRect().top > this.state.scrollPos
+    });
+  }
+
+
+  render() {
+    return (
+      <a href='/'>
+        <Nav
+        className={this.state.show ? 'active' : 'hidden'}
         >
-          {siteTitle}
-        </Link>
-      </h2>
-    </div>
-  </header>
-)
+          <NavText>
+            {'Jake Mu || Home'}
+          </NavText>
+        </Nav>
+      </a>
 
-Header.propTypes = {
-  siteTitle: PropTypes.string,
+    );
+  }
 }
-
-Header.defaultProps = {
-  siteTitle: ``,
-}
-
-export default Header

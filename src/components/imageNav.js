@@ -1,36 +1,34 @@
 import React from "react"
 import MEDIA from '../helpers/mediaTemplates';
 import styled from "styled-components"
-import Image from "../components/image"
 
 
 const Container = styled.div`
 margin: 0;
-max-width: 45%;
-
-padding: 2rem;
+max-width: 50%;
+padding: 0rem;
 display: flex;
 flex-direction: column;
-align-items: center;
+align-items: left;
 
 ${MEDIA.TABLET`
-    margin: 2rem;
-    max-width: 95%;
+    margin: 0rem;
+    max-width: 100%;
 
   `};
 ${MEDIA.PHONE`
-    margin: 2rem;
-    max-width: 95%;
+    margin: 0rem;
+    max-width: 100%;
 
 
   `};
 `
 
 
-const ImageNav = () => {
+const ImageNav = ({ children }) => {
   return(
     <Container>
-      <Image />
+      {children}
     </Container>
   )
 }

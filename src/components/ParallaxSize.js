@@ -1,32 +1,36 @@
 import React, { useState, useEffect } from "react"
-import { useSpring, animated, interpolate } from "react-spring";
+import { useSpring, animated } from "react-spring";
 import PropTypes from "prop-types"
 
 
-export function debounce(func, wait = 5, immediate = false) {
-  let timeout;
-  return function() {
-    const context = this;
-    const args = arguments;
-    const later = function() {
-      timeout = null;
-      if (!immediate) func.apply(context, args);
-    };
-    const callNow = immediate && !timeout;
-    clearTimeout(timeout);
-    timeout = setTimeout(later, wait);
-    if (callNow) func.apply(context, args);
-  };
-}
+
 
 const ParallaxSize = ({ obj, speed, offset, xPos }) => {
-  const [scrollY, setScrollY] = useState(0);
+  const [scrollY, setScrollY] = useState(10000);
+
+  function debounce(func, wait = 5, immediate = false) {
+    let timeout;
+    return function() {
+      const context = this;
+      const args = arguments;
+      const later = function() {
+        timeout = null;
+        if (!immediate) func.apply(context, args);
+      };
+      const callNow = immediate && !timeout;
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+      if (callNow) func.apply(context, args);
+    };
+  }
+
   useEffect(
     () => {
       const handleScroll = () => setScrollY(window.scrollY + offset);
       window.addEventListener("scroll", debounce(handleScroll));
       return () => window.removeEventListener("scroll", debounce(handleScroll));
     },
+    [offset],
     [debounce]
   );
 
@@ -36,8 +40,6 @@ const ParallaxSize = ({ obj, speed, offset, xPos }) => {
   const parallaxLevel = speed
   springsetScrollY({ springscrollY: scrollY });
   const interpHeader = springscrollY.interpolate(o => `${o / parallaxLevel}%`);
-  console.log({interpHeader});
-
 
   return (
     <div>

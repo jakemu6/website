@@ -1,72 +1,77 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-
 import Header from "../components/header";
-import SEO from "../components/seo"
-import { StaticQuery, graphql } from "gatsby"
-import styled from "styled-components"
-import MEDIA from '../helpers/mediaTemplates';
+import Layout from "../components/halfLayout";
 
+import SEO from "../components/seo";
+import { useStaticQuery, graphql } from "gatsby";
+import styled from "styled-components";
+import Img from "gatsby-image";
 
 const VideoContainer = styled.div`
-position:relative;
-width: 100%;
-height: 800px;
-margin: 1rem;
-${MEDIA.TABLET`
-  height: 500px;
-  `};
-${MEDIA.PHONE`
-  height: 500px;
-  `};
+  height: 600px;
+`
 
+const VidIFrame = styled.iframe`
+width: 100%;
+height: 100%;
 `
 
 
+const SmartBins = () => {
 
-const smartBins = () => {
-  return(
-    <StaticQuery
-      query={graphql`
-        query {
-          site {
-            siteMetadata{
-              title
+  const data = useStaticQuery(graphql`
+    query smartBinsImages{
+      images: allFile( filter: {relativeDirectory: { eq: "SmartBins" }}, sort: {fields: name} )
+      {
+        nodes {
+          id
+          name
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
         }
-      `}
+      }
+    }
+  `)
 
-      render={data => (
-        <div>
+  return(
+        <Layout
+        text={
+          <div>
           <SEO title="Smart Bins" />
-          <Header siteTitle={data.site.siteMetadata.title} />
+            <Header/>
 
+          <h2>
+            <i>Smart Bins</i>
+            <br /><br />
 
-
-          <h2 className="pageTitle">
-            {'SMART BINS'}
-          </h2>
-
-
-          <VideoContainer>
-          <iframe src="https://player.vimeo.com/video/438414689?autoplay=1&loop=1&title=0&byline=0&portrait=0" className="VidFrame" frameBorder="0" allow="autoplay; fullscreen" allowFullScreen>
-          </iframe>
-          </VideoContainer>
-
-          <script src="https://player.vimeo.com/api/player.js"></script>
-
-          <h2 className="bodyCopy">
-            {'Smart Bins is an app designed to promote recycling for small children in schools. The prototype is designed for use on tablets in schools and helps to teach children how to recycle using object recognition.'}
-          </h2>
-
-          <p className="bodyCopy">
+            {'Smart Bins is an app prototype designed to promote recycling for young children in schools. app is aimed for use on tablets in schools and helps to teach children how to recycle using object recognition.'}
+            <br /><br />
             {'Illustrations designed by Mulanne Phan (behance.net/mulanne), UX/UI designed by Jake Mu'}
-          </p>
-        </div>
-      )}
-    />
+          </h2>
+
+
+
+          </div>
+        }
+        images={
+
+          <div>
+            <VideoContainer className="galleryImage" >
+              <VidIFrame title="Smart-Bins-Playthrough" src="https://player.vimeo.com/video/438414689?autoplay=1&loop=1&title=0&byline=0&portrait=0" className="VidFrame" frameBorder="0" allow="autoplay; fullscreen" allowFullScreen></VidIFrame>
+            </VideoContainer>
+
+            {data.images.nodes.map(image => (
+              <Img className="galleryImage" key={image.id} fluid={image.childImageSharp.fluid} />
+              ))
+            }
+
+          </div>
+        }
+      />
   )
 }
 
-export default smartBins;
+export default SmartBins;

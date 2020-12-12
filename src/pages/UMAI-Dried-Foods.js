@@ -1,74 +1,102 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { StaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
-
 import Header from "../components/header";
 import SEO from "../components/seo"
+import Layout from "../components/halfLayout";
+
+import styled from "styled-components";
+import MEDIA from '../helpers/mediaTemplates';
 
 
-
+const ImageGrid = styled(Img)`
+  margin-bottom: 2rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  margin-top: 2rem;
+  ${MEDIA.TABLET`
+  `};
+  ${MEDIA.PHONE`
+  `};
+`
 
 const UMAI = () => {
-  return(
-    <StaticQuery
-      query={graphql`
-        query {
-          UDF1: file(relativePath: { eq: "UmaiDriedFoods/UDF_1.jpg" }) {
-            childImageSharp {
-              fluid(maxWidth: 2000) {
-                ...GatsbyImageSharpFluid
-              }
-            }
-          }
-          UDF2: file(relativePath: { eq: "UmaiDriedFoods/UDF_2.jpg" }) {
-            childImageSharp {
-              fluid(maxWidth: 1000) {
-                ...GatsbyImageSharpFluid
-              }
-            }
-          }
-          UDF3: file(relativePath: { eq: "UmaiDriedFoods/UDF_3.jpg" }) {
-            childImageSharp {
-              fluid(maxWidth: 1000) {
-                ...GatsbyImageSharpFluid
-              }
-            }
-          }
-          site {
-            siteMetadata{
-              title
-            }
+  const data = useStaticQuery(graphql`
+    query {
+      Bonito_Logo: file(relativePath: { eq: "UmaiDriedFoods/Logo_Bonito.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 2000) {
+            ...GatsbyImageSharpFluid_withWebp
           }
         }
-      `}
+      }
+      Anchovy_Logo: file(relativePath: { eq: "UmaiDriedFoods/Logo_Anchovy.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 2000) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
+        }
+      }
+      Squid_Logo: file(relativePath: { eq: "UmaiDriedFoods/Logo_Squid.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 2000) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
+        }
+      }
+      Bonito_Main: file(relativePath: { eq: "UmaiDriedFoods/Bonito_Main.jpg" }) {
+        childImageSharp {
+          fluid(maxWidth: 2000) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
+        }
+      }
+      Anchovy_Main: file(relativePath: { eq: "UmaiDriedFoods/Anchovy_Main.jpg" }) {
+        childImageSharp {
+          fluid(maxWidth: 2000) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
+        }
+      }
+      Squid_Main: file(relativePath: { eq: "UmaiDriedFoods/Squid_Main.jpg" }) {
+        childImageSharp {
+          fluid(maxWidth: 2000) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
+        }
+      }
+    }
+  `)
 
-      render={data => (
 
-        <div>
-        <SEO title="Umai Dried Foods" />
+  return(
+        <Layout
+        text={
+          <div>
+          <SEO title="Umai Dried Foods" />
+          <Header/>
 
-        <Header siteTitle={data.site.siteMetadata.title} />
-          <h2 className="pageTitle">
-          {'UMAI Dried Foods'}
+          <h2>
+          <i>UMAI Dried Foods</i>
+          <br /><br />
+          {'UMAI is a dried snack manufacturer with a variety of dried seafood snacks.'}
+          <br /><br />
+          {"The packaging is designed to align with the brand's values of liveliness and fun. Bold patterns and colours are used to represent these values and engage a wide audience. Each box is designed to have a unique shape and pattern that represents the ingredients of the product."}
           </h2>
-
-          <h2 className="bodyCopy">
-          {'UMAI is a Japanese dried snack manufacturer with a variety of different dried seafood snacks. The design of the packaging attracts customers through playfulness and bright contrasting colours.'}
-
-          </h2>
-          <Img
-            fluid={data.UDF1.childImageSharp.fluid}
-          />
-          <Img
-            fluid={data.UDF2.childImageSharp.fluid}
-          />
-          <Img
-            fluid={data.UDF3.childImageSharp.fluid}
-          />
         </div>
-      )}
-    />
+        }
+        images={
+          <div>
+          <ImageGrid fluid={data.Bonito_Logo.childImageSharp.fluid}/>
+          <ImageGrid fluid={data.Bonito_Main.childImageSharp.fluid}/>
+          <ImageGrid fluid={data.Anchovy_Logo.childImageSharp.fluid}/>
+          <ImageGrid fluid={data.Anchovy_Main.childImageSharp.fluid}/>
+          <ImageGrid fluid={data.Squid_Logo.childImageSharp.fluid}/>
+          <ImageGrid fluid={data.Squid_Main.childImageSharp.fluid}/>
+
+          </div>
+        }
+        />
   )
 }
 

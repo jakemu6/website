@@ -20,33 +20,35 @@ const Mobile = ({ children }) => {
 
 
 const Container = styled.div`
-flex-direction: column;
-display: flex;
-top: 2rem;
-padding-right: 2rem;
 position: fixed;
-align-items: left;
-left: 52%;
-margin: 0;
+top: 0;
+left: 50%;
+bottom: 0;
+width: 50%;
+z-index: 1000;
+overflow-y: auto;
+-ms-overflow-style: none;
+scrollbar-width: none;
+padding-right: 2rem;
+padding-top: 2rem;
 
+
+&::-webkit-scrollbar {
+    display: none;
+}
 ${MEDIA.TABLET`
-
-
-    max-width: 100%;
+    width: 100%;
     position: static;
     align-items: left;
-    padding: 1rem;
+    padding: 2rem;
     padding-bottom: 0;
     z-index: 10;
-
   `};
 ${MEDIA.PHONE`
-
-
-  max-width: 100%;
+  width: 100%;
   position: static;
   align-items: left;
-  padding: 1rem;
+  padding: 2rem;
   padding-bottom: 0;
   z-index: 10;
   `};
