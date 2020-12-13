@@ -25,7 +25,7 @@ const NavText = styled.h2`
   font-weight: 400;
   font-style: italic;
   text-rendering: optimizeLegibility;
-  font-size: 1.5rem;
+  font-size: 2rem;
   line-height: 1.25;
 `;
 

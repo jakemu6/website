@@ -12,17 +12,16 @@ const IndexPage = () => {
          text={
            <div>
            <SEO title="Home" />
-           <h1>
-              Jake Mu is a graphic designer & developer from Sydney, Australia.<br />
-           </h1>
+
            <h2>
-          My design practice is based around creating digital experiences with additional experience in print media.
-          I’m interested in creating digital experiences that create beauty and wonder with a strong creative concept behind every experience.
-          <br /><br />
-           Previously: <br />
-           Honours in Visual Communications at UTS, <br />Design Intern at Hypebeast NYC, <br />Design Intern at MOD Studio SYD.
-           <br /><br />
+             Jake Mu is a graphic designer & developer living in Sydney, Australia. His design practise is in digital experiences that subvert the ways we use technology as a tool for thought and reflection.
+
+             Previously Jake has completed his honours degree in Visual Communications at the University of Technology Sydney. He has also worked as a design intern for Hypebeast New York and Mod Studio Sydney.
            </h2>
+
+           <h1>
+             Graphic Design  ||  Creative Code  ||  Data Visualisation  ||  UI/UX  ||  Front End Web-Dev  ||  Creative Strategy
+           </h1>
            <SocialFollow/>
            </div>
          }
