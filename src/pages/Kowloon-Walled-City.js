@@ -3,10 +3,67 @@ import { useStaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
 import Header from "../components/header";
 import SEO from "../components/seo";
-import Layout from "../components/halfLayout";
+import TwoColumnLayout from '../components/twoColumnLayout';
+import styled from "styled-components";
+import MEDIA from '../helpers/mediaTemplates';
+
+const ImageGrid2x2 = styled(Img)`
+ width: 100%;
+`
+
+const ImageGrid1x1 = styled(Img)`
+ width: 100%;
+ grid-column-start: 1;
+ grid-column-end: 3;
+ ${MEDIA.PHONE`
+   grid-column-start: 1;
+   grid-column-end: 1;
+   `};
+`
+
+const GridContainer = styled.div`
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(50% - 2rem, 0fr));
+grid-gap: 2rem;
+margin: 2rem;
+${MEDIA.PHONE`
+  grid-template-columns: repeat(auto-fill, minmax(100%, 0fr));
+  `};
+`
+
+const TextContainer = styled.div`
+position: fixed;
+top: 0;
+bottom: 0;
+z-index: 1000;
+width: 33%;
+overflow-y: auto;
+-ms-overflow-style: none;
+scrollbar-width: none;
+padding-right: 2rem;
+padding-top: 2rem;
+&::-webkit-scrollbar {
+    display: none;
+}
+${MEDIA.TABLET`
+    width: 100%;
+    position: static;
+    align-items: left;
+    padding: 2rem;
+    padding-bottom: 0;
+    z-index: 10;
+  `};
+${MEDIA.PHONE`
+  width: 100%;
+  position: static;
+  align-items: left;
+  padding: 2rem;
+  padding-bottom: 0;
+  z-index: 10;
+  `};
+`
 
 const KWC = () => {
-
 
   const data = useStaticQuery(graphql`
     query KWCImages{
@@ -28,9 +85,23 @@ const KWC = () => {
   console.log(data)
 
   return(
-        <Layout
-        text={
-          <>
+        <TwoColumnLayout
+        Column1Size="66"
+        Column1Content={
+          <GridContainer>
+            <ImageGrid1x1 fluid={data.images.nodes[0].childImageSharp.fluid} />
+
+            {data.images.nodes.map(image => (
+                <ImageGrid2x2 key={image.id} fluid={image.childImageSharp.fluid} />
+              ))
+            }
+
+          </GridContainer>
+
+        }
+        Column2Size="33"
+        Column2Content={
+          <TextContainer>
           <SEO title="Kowloon Walled City" />
           <Header siteTitle="Jake Mu" />
           <h2>
@@ -40,15 +111,7 @@ const KWC = () => {
             <br /><br />
             {'Inspired by the works of Greg Girard and his interviews within the city, the book is an interactive exploration of the voices from the city.'}
           </h2>
-          </>
-        }
-        images={
-          <div>
-            {data.images.nodes.map(image => (
-                <Img className="galleryImage" key={image.id} fluid={image.childImageSharp.fluid} />
-              ))
-            }
-          </div>
+        </TextContainer>
 
         }
         />

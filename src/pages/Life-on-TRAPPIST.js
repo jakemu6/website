@@ -7,17 +7,43 @@ import Header from "../components/header";
 import SEO from "../components/seo";
 
 import styled from "styled-components";
-import Layout from "../components/halfLayout";
+import TwoColumnLayout from '../components/twoColumnLayout';
+import MEDIA from '../helpers/mediaTemplates';
+
 
 const VideoContainer = styled.div`
-  height: 600px;
+position: relative;
+height: 0;
+overflow: hidden;
+padding-top: 66.66%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+margin: 2rem;
 `
 
-const VidIFrame = styled.iframe`
+const P5IFrame = styled.iframe`
+position: absolute;
+top:0;
+left: 0;
 width: 100%;
 height: 100%;
+
 `
 
+const TextContainer = styled.div`
+overflow-y: auto;
+-ms-overflow-style: none;
+scrollbar-width: none;
+&::-webkit-scrollbar {
+    display: none;
+}
+
+    width: 100%;
+    position: static;
+    align-items: left;
+    padding: 2rem;
+    padding-bottom: 0;
+    z-index: 10;
+
+`
 
 const LOT = () => {
 
@@ -40,10 +66,22 @@ const LOT = () => {
 
 
   return(
-
-        <Layout
-        text={
+        <TwoColumnLayout
+        Column1Size="100"
+        Column1Content={
           <div>
+
+            <VideoContainer>
+              <P5IFrame src="https://editor.p5js.org/jakemu6/embed/PVJYEsmgj" scrolling="no" allowfullscreen="" height="800" width="1200"></P5IFrame>
+            </VideoContainer>
+
+
+          </div>
+
+        }
+        Column2Size="33"
+        Column2Content={
+          <TextContainer>
             <SEO title="Life on TRAPPIST?" />
             <Header/>
             <h2>
@@ -54,23 +92,12 @@ const LOT = () => {
             <br />        <br />
             {'The project uses the Java based coding environment, linked with data obtained from the NASA exoplanet archive.'}
             </h2>
-          </div>
-        }
-        images={
-
-          <div>
-            <VideoContainer className="galleryImage" >
-              <VidIFrame title="Trappist-Playthrough" src="https://player.vimeo.com/video/439467667?autoplay=1&loop=1&title=0&byline=0&portrait=0" className="VidFrame" frameBorder="0" allow="autoplay; fullscreen" allowFullScreen></VidIFrame>
-            </VideoContainer>
-
-            {data.images.nodes.map(image => (
-              <Img className="galleryImage" key={image.id} fluid={image.childImageSharp.fluid} />
-              ))
-            }
-
-          </div>
+          </TextContainer>
 
         }
+
+
+
         />
   )
 }

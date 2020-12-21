@@ -3,7 +3,10 @@
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100;
+  background-color: #FCFAF2;
+
+
 
 }
 body {
@@ -229,9 +232,9 @@ h1 {
   font-weight: 400;
   font-style: italic;
   text-rendering: optimizeLegibility;
-  font-size: 2rem;
+  font-size: 1rem;
   line-height: 1.25;
-  
+
 }
 h2 {
   margin-left: 0;
@@ -247,7 +250,7 @@ h2 {
   font-weight: 400;
   font-style: normal;
   text-rendering: optimizeLegibility;
-  font-size: 2rem;
+  font-size: 1rem;
   line-height: 1.4;
 }
 h3 {
