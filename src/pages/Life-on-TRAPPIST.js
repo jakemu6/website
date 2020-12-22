@@ -7,7 +7,7 @@ import Header from "../components/header";
 import SEO from "../components/seo";
 
 import styled from "styled-components";
-import TwoColumnLayout from '../components/twoColumnLayout';
+import ThreeColumnLayout from '../components/threeColumnLayout';
 import MEDIA from '../helpers/mediaTemplates';
 
 
@@ -66,7 +66,7 @@ const LOT = () => {
 
 
   return(
-        <TwoColumnLayout
+        <ThreeColumnLayout
         Column1Size="100"
         Column1Content={
           <div>
@@ -79,8 +79,20 @@ const LOT = () => {
           </div>
 
         }
-        Column2Size="33"
+        Column2Size="66"
         Column2Content={
+          <div>
+            {data.images.nodes.map(image => (
+                <Img className="galleryImage" key={image.id} fluid={image.childImageSharp.fluid} />
+              )
+            )
+            }
+          </div>
+
+
+        }
+        Column3Size="33"
+        Column3Content={
           <TextContainer>
             <SEO title="Life on TRAPPIST?" />
             <Header/>

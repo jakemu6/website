@@ -1,16 +1,63 @@
 import React from "react"
-
-import Layout from "../components/halfLayout"
+import TwoColumnLayout from "../components/twoColumnLayout"
 import SEO from "../components/seo"
 import SocialFollow from "../components/socialFollow"
 import homeThumbnails from '../components/homeThumbnails'
 
+import styled from "styled-components";
+import MEDIA from '../helpers/mediaTemplates';
+
+
+const TextContainer = styled.div`
+position: fixed;
+top: 0;
+bottom: 0;
+z-index: 1000;
+width: 33%;
+overflow-y: auto;
+-ms-overflow-style: none;
+scrollbar-width: none;
+padding-right: 2rem;
+padding-top: 2rem;
+&::-webkit-scrollbar {
+    display: none;
+}
+${MEDIA.TABLET`
+    width: 100%;
+    position: static;
+    align-items: left;
+    padding: 2rem;
+    padding-bottom: 0;
+    z-index: 10;
+  `};
+${MEDIA.PHONE`
+  width: 100%;
+  position: static;
+  align-items: left;
+  padding: 2rem;
+  padding-bottom: 0;
+  z-index: 10;
+  `};
+`
+
+
 const IndexPage = () => {
 
   return(
-         <Layout
-         text={
+         <TwoColumnLayout
+           Column1Size="66"
+         Column1Content={
            <div>
+             {homeThumbnails.map(({ id, src, title, href}) =>
+               <a key={id} href={href}>
+                 <img className='homeThumbnails' key={id} src={src} title={title} alt={title}/>
+               </a>
+             )}
+          </div>
+         }
+         Column2Size="33"
+         Column2Content={
+           <TextContainer>
            <SEO title="Home" />
 
            <h2>
@@ -23,16 +70,8 @@ const IndexPage = () => {
              Graphic Design  ||  Creative Code  ||  Data Visualisation  ||  UI/UX  ||  Front End Web-Dev  ||  Creative Strategy
            </h1>
            <SocialFollow/>
-           </div>
-         }
-         images={
-           <div>
-             {homeThumbnails.map(({ id, src, title, href}) =>
-               <a key={id} href={href}>
-                 <img className='homeThumbnails' key={id} src={src} title={title} alt={title}/>
-               </a>
-             )}
-          </div>
+           </TextContainer>
+
          }
          />
   )
