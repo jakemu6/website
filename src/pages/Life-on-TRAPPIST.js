@@ -17,6 +17,10 @@ height: 0;
 overflow: hidden;
 padding-top: 66.66%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
 margin: 2rem;
+${MEDIA.PHONE`
+  width: 0%;
+  height: 0%;
+  `};
 `
 
 const P5IFrame = styled.iframe`
@@ -25,7 +29,6 @@ top:0;
 left: 0;
 width: 100%;
 height: 100%;
-
 `
 
 const TextContainer = styled.div`
@@ -35,14 +38,12 @@ scrollbar-width: none;
 &::-webkit-scrollbar {
     display: none;
 }
-
     width: 100%;
     position: static;
     align-items: left;
     padding: 2rem;
     padding-bottom: 0;
     z-index: 10;
-
 `
 
 const LOT = () => {

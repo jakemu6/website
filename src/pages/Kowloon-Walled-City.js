@@ -90,11 +90,22 @@ const KWC = () => {
         Column1Content={
           <GridContainer>
             <ImageGrid1x1 fluid={data.images.nodes[0].childImageSharp.fluid} />
+            <ImageGrid1x1 fluid={data.images.nodes[2].childImageSharp.fluid} />
+            <ImageGrid1x1 fluid={data.images.nodes[5].childImageSharp.fluid} />
+            <ImageGrid2x2 fluid={data.images.nodes[6].childImageSharp.fluid} />
+            <ImageGrid2x2 fluid={data.images.nodes[1].childImageSharp.fluid} />
+            <ImageGrid1x1 fluid={data.images.nodes[3].childImageSharp.fluid} />
+            <ImageGrid2x2 fluid={data.images.nodes[10].childImageSharp.fluid} />
+            <ImageGrid2x2 fluid={data.images.nodes[11].childImageSharp.fluid} />
+              <ImageGrid1x1 fluid={data.images.nodes[4].childImageSharp.fluid} />
+              <ImageGrid2x2 fluid={data.images.nodes[12].childImageSharp.fluid} />
+              <ImageGrid2x2 fluid={data.images.nodes[13].childImageSharp.fluid} />
+                <ImageGrid1x1 fluid={data.images.nodes[8].childImageSharp.fluid} />
+                <ImageGrid2x2 fluid={data.images.nodes[7].childImageSharp.fluid} />
+                <ImageGrid2x2 fluid={data.images.nodes[9].childImageSharp.fluid} />
 
-            {data.images.nodes.map(image => (
-                <ImageGrid2x2 key={image.id} fluid={image.childImageSharp.fluid} />
-              ))
-            }
+
+
 
           </GridContainer>
 
@@ -107,7 +118,7 @@ const KWC = () => {
           <h2>
             <i>Kowloon Walled City</i>
             <br /><br />
-            {'Kowloon Walled City is a publication which visually explores the life of the most densely populated area in the world. Created in response to the ISTD lost brief, the book explores the lost city that many people called their home.'}
+            {'Kowloon Walled City is a publication which visually explores the life of the most densely populated area in the world. Created in response to the ISTD lost brief, the book explores the lost city that many people called their home. It uses printed acrylic sheets alongside a bookmark to illuminate the dark, mysterious city and discover details within the walls.'}
             <br /><br />
             {'Inspired by the works of Greg Girard and his interviews within the city, the book is an interactive exploration of the voices from the city.'}
           </h2>

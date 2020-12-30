@@ -18,6 +18,10 @@ const ImageGrid1x1 = styled(Img)`
    `};
 `
 
+const ImageGrid2x2 = styled(Img)`
+ width: 100%;
+`
+
 const GridContainer = styled.div`
 display: grid;
 grid-template-columns: repeat(auto-fill, minmax(50% - 2rem, 0fr));
@@ -90,14 +94,21 @@ const RNAUTS = () => {
     <TwoColumnLayout
       Column1Size="66"
       Column1Content={
-        <div>
+        <GridContainer>
           <Header/>
-          {data.images.nodes.map(image => (
-              <Img className="galleryImage" key={image.id} fluid={image.childImageSharp.fluid} />
-            )
-          )
-          }
-        </div>
+            <ImageGrid1x1 fluid={data.images.nodes[0].childImageSharp.fluid} />
+            <ImageGrid1x1 fluid={data.images.nodes[1].childImageSharp.fluid} />
+            <ImageGrid1x1 fluid={data.images.nodes[2].childImageSharp.fluid} />
+            <ImageGrid1x1 fluid={data.images.nodes[3].childImageSharp.fluid} />
+            <ImageGrid2x2 fluid={data.images.nodes[7].childImageSharp.fluid} />
+            <ImageGrid2x2 fluid={data.images.nodes[8].childImageSharp.fluid} />
+            <ImageGrid2x2 fluid={data.images.nodes[9].childImageSharp.fluid} />
+            <ImageGrid2x2 fluid={data.images.nodes[10].childImageSharp.fluid} />
+            <ImageGrid1x1 fluid={data.images.nodes[4].childImageSharp.fluid} />
+            <ImageGrid1x1 fluid={data.images.nodes[6].childImageSharp.fluid} />
+            <ImageGrid1x1 fluid={data.images.nodes[5].childImageSharp.fluid} />
+
+        </GridContainer>
       }
       Column2Size="33"
       Column2Content={
