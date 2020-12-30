@@ -5,7 +5,7 @@ import RNAUTS from '../images/HomeImages/sqImage_UTSRNA.jpg';
 import SmartBins from '../images/HomeImages/sqImage002.png';
 import Obsessed from '../images/HomeImages/Obsessed.jpg';
 import Trappist from '../images/HomeImages/Trappist.jpg';
-import KowloonWalledCity from '../images/HomeImages/sqImage005.jpg';
+import KowloonWalledCity from '../images/HomeImages/KWC.jpg';
 
 
 
