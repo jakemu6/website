@@ -11,7 +11,7 @@ import Video from "../components/video";
 import SEO from "../components/seo"
 
 import MEDIA from '../helpers/mediaTemplates';
-import styled , { keyframes } from "styled-components";
+import styled , { keyframes , ThemeProvider } from "styled-components";
 import "../components/layout.css"
 
 import Parallax from "../components/Parallax";
@@ -19,6 +19,40 @@ import ParallaxSize from "../components/ParallaxSize";
 import Header from "../components/header";
 
 
+const PhotoBox = styled.div`
+position: absolute;
+margin: auto;
+left: ${props => props.theme.xVal};
+width: 60%;
+padding: 1rem;
+text-align: center;
+transform: translate(-50%, 0%);
+
+
+font-family: albertan-pro, sans-serif;
+font-weight: 500;
+font-style: normal;
+
+font-size: 20px;
+letter-spacing: 1.2px;
+line-height: 1.5;
+
+color: white;
+z-index: 10;
+${MEDIA.TABLET`
+  left: 50%;
+  width: 80%;
+`};
+${MEDIA.PHONE`
+  left: 50%;
+  width: 100%;
+`};
+
+`
+
+const theme = {
+  xVal: "50%"
+}
 
 
 const Container = styled.div`
@@ -149,7 +183,7 @@ const FlowerImgAnti = styled(Img)`
 
 
 const Page = styled.div`
- height: 1060vh;
+ height: 1300vh;
  background-color: rgb(0, 0, 0);
  overflow-x: hidden;
   ${MEDIA.TABLET`
@@ -189,6 +223,35 @@ const TheBloomAroundUs = () => {
 
   const data = useStaticQuery(graphql`
       query {
+        Img1: file(relativePath: { eq: "TBAU/TBAU_Photos/TBAU_0.jpg" }) {
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
+        Img2: file(relativePath: { eq: "TBAU/TBAU_Photos/TBAU_1.jpg" }) {
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
+        Img3: file(relativePath: { eq: "TBAU/TBAU_Photos/TBAU_8.jpg" }) {
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
+        Img4: file(relativePath: { eq: "TBAU/TBAU_Photos/TBAU_7.jpg" }) {
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
+
         F101: file(relativePath: { eq: "TBAU/101.png" }) {
           childImageSharp {
             fluid(maxWidth: 200) {
@@ -309,6 +372,9 @@ const TheBloomAroundUs = () => {
         <Parallax obj={<ParallaxSize obj={<FlowerImg fluid={data.F401.childImageSharp.fluid}/>} speed={-60} offset={-700} xPos={15}/>} speed={1.8} offset={80}/>
         <Parallax obj={<ParallaxSize obj={<FlowerImgAnti fluid={data.F402.childImageSharp.fluid}/>} speed={-60} offset={-1200} xPos={83}/>} speed={2} offset={10}/>
 
+
+
+
         <VidFrame>
             <Video
               videoSrcURL="https://player.vimeo.com/video/471820449"
@@ -316,6 +382,8 @@ const TheBloomAroundUs = () => {
               videoClassName="TBAUVideo"
             />
         </VidFrame>
+
+
 
         <BloomBody style={{top: '280%'}}>For decades technological design has focussed on an aesthetic of minimal functionalism. Using Twitter as a representation of the technological landscape, <i>The Bloom Around Us</i> aims to rethink how we interact with technology and how we might reimagine its values to create more pleasant and beautiful interactions.</BloomBody>
 
@@ -446,12 +514,31 @@ const TheBloomAroundUs = () => {
               </animated.div>
             } speed={4} offset={280}/>
 
+          <PhotoBox style={{top: '1000%'}} theme={{ xVal: "70%" }}>
+              <Img fluid={data.Img1.childImageSharp.fluid}/>
+          </PhotoBox>
 
-          <BloomBody style={{top: '1000%'}}><a className='whiteText' href="/The-Bloom-Around-Us-About/">View technical case study</a></BloomBody>
-          <BloomBody style={{top: '1010%'}}><a className='whiteText' href="/" target="_top">Back to Home</a></BloomBody>
 
 
-          <BloomBody style={{top: '1020%'}}>This project was produced as part of the UTS Honours Program 2020. <br/><br/>
+            <PhotoBox style={{top: '1100%'}} theme={{ xVal: "70%" }}>
+                <Img fluid={data.Img3.childImageSharp.fluid}/>
+            </PhotoBox>
+
+            <PhotoBox style={{top: '1050%'}} theme={{ xVal: "30%" }}>
+                <Img fluid={data.Img2.childImageSharp.fluid}/>
+            </PhotoBox>
+
+            <PhotoBox style={{top: '1150%'}} theme={{ xVal: "30%" }}>
+                <Img fluid={data.Img4.childImageSharp.fluid}/>
+            </PhotoBox>
+
+
+
+          <BloomBody style={{top: '1230%'}}><a className='whiteText' href="/The-Bloom-Around-Us-About/">View technical case study</a></BloomBody>
+          <BloomBody style={{top: '1240%'}}><a className='whiteText' href="/" target="_top">Back to Home</a></BloomBody>
+
+
+          <BloomBody style={{top: '1250%'}}>This project was produced as part of the UTS Honours Program 2020. <br/><br/>
                 Thank you to Aaron Seymour, Zoe Sadokierski, Aiden Barry, Madi Chan, Aaron Davis, Julie Nguyen & everyone who helped contribute to this project for their continual guidance and support.<br/><br/></BloomBody>
 
         </Page>
