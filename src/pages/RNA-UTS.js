@@ -36,7 +36,7 @@ const TextContainer = styled.div`
 position: fixed;
 top: 0;
 bottom: 0;
-width: 33%;
+max-width: 533px;
 
 z-index: 1000;
 overflow-y: auto;
@@ -91,11 +91,11 @@ const RNAUTS = () => {
     }
   `)
   return(
+    <div>
     <TwoColumnLayout
       Column1Size="66"
       Column1Content={
         <GridContainer>
-          <Header/>
             <ImageGrid1x1 fluid={data.images.nodes[0].childImageSharp.fluid} />
             <ImageGrid1x1 fluid={data.images.nodes[1].childImageSharp.fluid} />
             <ImageGrid1x1 fluid={data.images.nodes[2].childImageSharp.fluid} />
@@ -128,6 +128,8 @@ const RNAUTS = () => {
       </TextContainer>
       }
       />
+      <Header/>
+</div>
   )
 }
 

@@ -35,8 +35,8 @@ const TextContainer = styled.div`
 position: fixed;
 top: 0;
 bottom: 0;
+max-width: 533px;
 z-index: 1000;
-width: 33%;
 overflow-y: auto;
 -ms-overflow-style: none;
 scrollbar-width: none;

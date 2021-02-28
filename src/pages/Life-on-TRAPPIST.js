@@ -15,7 +15,7 @@ const VideoContainer = styled.div`
 position: relative;
 height: 0;
 overflow: hidden;
-padding-top: 66.66%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+padding-top: 50%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
 margin: 2rem;
 ${MEDIA.PHONE`
   width: 0%;
@@ -25,10 +25,11 @@ ${MEDIA.PHONE`
 
 const P5IFrame = styled.iframe`
 position: absolute;
-top:0;
-left: 0;
-width: 100%;
-height: 100%;
+top: 0px;
+left: 50%;
+transform: translate(-50%, 0);
+width: 1600px;
+min-width: 1200px;
 `
 
 const TextContainer = styled.div`
@@ -39,6 +40,8 @@ scrollbar-width: none;
     display: none;
 }
     width: 100%;
+    max-width: 533px;
+
     position: static;
     align-items: left;
     padding: 2rem;
@@ -73,7 +76,7 @@ const LOT = () => {
           <div>
 
             <VideoContainer>
-              <P5IFrame src="https://editor.p5js.org/jakemu6/embed/PVJYEsmgj" scrolling="no" allowfullscreen="" height="800" width="1200"></P5IFrame>
+              <P5IFrame src="https://editor.p5js.org/jakemu6/embed/PVJYEsmgj" scrolling="no" allowfullscreen="" height="800" maxWidth="1600"></P5IFrame>
             </VideoContainer>
 
 

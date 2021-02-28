@@ -35,8 +35,8 @@ const TextContainer = styled.div`
 position: fixed;
 top: 0;
 bottom: 0;
+max-width: 533px;
 z-index: 1000;
-width: 33%;
 overflow-y: auto;
 -ms-overflow-style: none;
 scrollbar-width: none;
@@ -84,6 +84,7 @@ const UMAI = () => {
 console.log(data)
 
   return(
+    <div>
         <TwoColumnLayout
           Column1Size="66"
           Column1Content={
@@ -100,12 +101,12 @@ console.log(data)
                 <ImageGrid1x1 fluid={data.images.nodes[4].childImageSharp.fluid} />
 
               </GridContainer>
+
           }
           Column2Size="33"
           Column2Content={
             <TextContainer>
             <SEO title="Umai Dried Foods" />
-            <Header/>
 
             <h2>
             <i>UMAI Dried Foods</i>
@@ -117,6 +118,10 @@ console.log(data)
           </TextContainer>
           }
           />
+          <Header/>
+
+
+</div>
   )
 }
 

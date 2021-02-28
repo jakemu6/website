@@ -8,11 +8,17 @@ import Column3 from "./Column"
 
 import "./layout.css"
 
+import styled from "styled-components"
 
+const Wrapper = styled.div`
+max-width: 1600px;
+position: relative;
+margin: 0 auto;
+`
 
 const ThreeColumnLayout = ({ Column1Content, Column2Content, Column3Content, Column1Size, Column2Size, Column3Size }) => {
   return (
-    <div>
+    <Wrapper>
 
       <Column1 size={Column1Size}>
         {Column1Content}
@@ -26,7 +32,7 @@ const ThreeColumnLayout = ({ Column1Content, Column2Content, Column3Content, Col
         {Column3Content}
       </Column3>
 
-    </div>
+    </Wrapper>
   )
 }
 

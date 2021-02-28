@@ -7,11 +7,17 @@ import Column2 from "./Column"
 
 import "./layout.css"
 
+import styled from "styled-components"
 
+const Wrapper = styled.div`
+max-width: 1600px;
+position: relative;
+    margin: 0 auto;
+`
 
 const TwoColumnLayout = ({ Column1Content, Column2Content, Column1Size, Column2Size }) => {
   return (
-    <div>
+    <Wrapper>
 
       <Column1 size={Column1Size}>
         {Column1Content}
@@ -21,7 +27,7 @@ const TwoColumnLayout = ({ Column1Content, Column2Content, Column1Size, Column2S
         {Column2Content}
       </Column2>
 
-    </div>
+    </Wrapper>
   )
 }
 

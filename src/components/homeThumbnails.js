@@ -6,6 +6,7 @@ import SmartBins from '../images/HomeImages/sqImage002.png';
 import Obsessed from '../images/HomeImages/Obsessed.jpg';
 import Trappist from '../images/HomeImages/Trappist.jpg';
 import KowloonWalledCity from '../images/HomeImages/KWC.jpg';
+import CreativeCodeExperiments from '../images/HomeImages/Balance.png';
 
 
 
@@ -17,6 +18,7 @@ const homeThumbnails = [
   { id: 4, src: SmartBins, title: 'Smart Bins', href: "/Smart-Bins"},
   { id: 7, src: KowloonWalledCity, title: 'Kowloon Walled City', href: "/Kowloon-Walled-City"},
   { id: 5, src: Obsessed, title: 'Obsessed: compelled to make', href: "/Obsessed"},
+  { id: 8, src: CreativeCodeExperiments, title: 'Creative Code Experiments', href: "/Code_Experiments"},
 /*
   { id: 7, src: KowloonWalledCity, title: 'Kowloon Walled City', href: "/DA-Earthquakes"},
 */

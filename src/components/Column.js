@@ -11,6 +11,7 @@ const Container = styled.div`
   display: inline-block;
   vertical-align: top;
 
+
   ${MEDIA.TABLET`
     width: 100%;
     max-width: 100%;
