@@ -62,9 +62,13 @@ const IndexPage = () => {
            <SEO title="Home" />
 
            <h2>
-             Jake Mu is a graphic designer & developer living in Sydney, Australia. His design practise is in digital experiences that subvert the ways we use technology as a tool for thought and reflection.
-
-             Previously Jake has completed his honours degree in Visual Communications at the University of Technology Sydney. He has also worked as a design intern for Hypebeast New York and Mod Studio Sydney.
+             Jake is a graphic designer living in Sydney, Australia. His skills are across both graphic design and front end development with practical knowledge in a diverse skill set. With a tenacious drive, he holds himself to high standards in all aspects of his work and is relentless in expanding his expertise.
+           </h2>
+           <h2>
+             Jake has worked across the fields&#8217; of design and development with studio experience from XR development to the media publication, Hypebeast in New York City. He holds a Bachelor of Design in Visual Communication at the University of Technology Sydney with First Class Honours.
+           </h2>
+           <h2>
+             Currently Jake is a designer at Grumpy Sailor Creative. He is also a research assistant at the University of Technology Sydney working on research into data visualisation and machine learning through VR environments.
            </h2>
 
            <h1>

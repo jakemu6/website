@@ -11,7 +11,7 @@ import Video from "../components/video";
 import SEO from "../components/seo"
 
 import MEDIA from '../helpers/mediaTemplates';
-import styled , { keyframes , ThemeProvider } from "styled-components";
+import styled , { keyframes } from "styled-components";
 import "../components/layout.css"
 
 import Parallax from "../components/Parallax";
@@ -50,9 +50,6 @@ ${MEDIA.PHONE`
 
 `
 
-const theme = {
-  xVal: "50%"
-}
 
 
 const Container = styled.div`

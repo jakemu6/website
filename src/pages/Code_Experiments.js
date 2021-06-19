@@ -62,6 +62,9 @@ const CreativeCodeExperiments = () => {
             <VideoContainer>
               <P5IFrame src="https://editor.p5js.org/jakemu6/embed/14ITyU_Ni" scrolling="no" allowfullscreen="" height="500" width="500"></P5IFrame>
             </VideoContainer>
+            <VideoContainer>
+              <P5IFrame src="https://editor.p5js.org/jakemu6/present/xGXtb0Gxk6" scrolling="no" allowfullscreen="" height="500" width="500"></P5IFrame>
+            </VideoContainer>
 
 
           </div>
@@ -77,7 +80,10 @@ const CreativeCodeExperiments = () => {
               CREATIVE CODE EXPERIMENTS
               <br /><br />
               <i>Balance</i>
-              <br /><br />
+              <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+              <i>Rose Patterns</i>
+
             </h2>
           </TextContainer>
 

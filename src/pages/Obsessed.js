@@ -14,16 +14,6 @@ const ImageGrid2x2 = styled(Img)`
  width: 100%;
 `
 
-const ImageGrid1x1 = styled(Img)`
- width: 100%;
- grid-column-start: 1;
- grid-column-end: 3;
- ${MEDIA.PHONE`
-   grid-column-start: 1;
-   grid-column-end: 1;
-   `};
-`
-
 const GIF = styled.img`
 width: 100%;
 grid-column-start: 1;
